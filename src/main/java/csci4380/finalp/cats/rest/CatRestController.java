@@ -70,10 +70,9 @@ public class CatRestController {
 	}
 	
 	@GetMapping("/byNameOrOwnerName/{name}/{ownerName}")
-	public Cat findByOwnerNameOrName(String name, String ownerName)
+	public Optional<Cat>findByNameOrOwnerName(String name, String ownerName)
 	{
-		Cat cat = catRepository.findByNameOrOwnerName(name, ownerName);
-		return cat;
+		return this.catRepository.findByNameOrOwnerName(name, ownerName);
 	}
 	
 	@GetMapping("/byTypeIgnoreCase/{type}")

@@ -20,7 +20,7 @@ import csci4380.finalp.dogs.mongodb.model.Dog;
 public interface DogRepository extends MongoRepository<Dog, String> {
 public Optional<List<Dog>> findByPetId(Integer petId);
 public Dog findByNameOrOwnerName(String name, String ownerName);
-@Query("{'type': {$toLower $type}}") //Native Query Method
+@Query("{'type': {$toLower: '$type'}}") //Native Query Method
 public Dog findByTypeIgnoreCase(@Param("type") String type);
 public void deleteByPetId(String petId);
 

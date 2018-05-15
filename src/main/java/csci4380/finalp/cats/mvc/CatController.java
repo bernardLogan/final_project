@@ -54,7 +54,7 @@ public class CatController {
 	}
 	
 	@GetMapping("/delete")
-	public String deleteStudent(Integer petId) {
+	public String deleteCat(Integer petId) {
 		catRepository.deleteById(petId);
 		return "redirect:/mvc/cats/list";	}
 	
@@ -66,7 +66,7 @@ public class CatController {
 		return cat.isPresent() ? cat.get() : null;
 	}
 	
-	@GetMapping("/catOptional")
+	@GetMapping("detailOptional")
 	@ResponseBody			
 	public Optional<Cat> showStudentDetailOptional(Integer petId) {
 		return catRepository.findById(petId);

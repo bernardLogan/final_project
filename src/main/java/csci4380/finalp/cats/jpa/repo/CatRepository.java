@@ -20,8 +20,8 @@ import csci4380.finalp.cats.jpa.model.Cat;
  */
 public interface CatRepository extends JpaRepository<Cat, Integer> {
 	
-	//("SELECT c FROM CAT c WHERE c.name = :name OR"+ "c.ownerName = :ownerName")
-	public Cat findByNameOrOwnerName(String name, String ownerName); // Query Method
+	public Optional<Cat> findByNameOrOwnerName(String name, String ownerName);  //public  findByNameOrOwnerName(String name, String ownerName);// Query Method
+	
 	@Query("SELECT c FROM CAT c WHERE c.lower(c.type) = lower(:type)") //Native Query Method
 	public Cat findByTypeIgnoreCase(@Param("type") String type);
 	
